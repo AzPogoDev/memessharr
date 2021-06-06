@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+    <div class="latest__post">
+
+        {% for res in result %}
+
+            <h1>{{ res.author }}</h1>
+
+        {% endfor %}
+
+
+        <h1 class="text-center my-5">Our 10 latest memes</h1>
+        <section>
+            <form method="post">
+                <div class="mb-3">
+                    <label for="memecontent" class="form-label">Url du même</label>
+                    <input class="form-control" id="memecontent" name="memecontent" type="text">
+                </div>
+                {# <label class="form-label" for="customFile">Meme</label> #}
+                {# <input type="file" name="file" class="form-control" id="customFile"/> #}
+                <button class="btn btn-secondary my-2" name="memesub">Add memes</button>
+            </form>
+
+        </section>
+        <div class="latest__post__loop row my-5 d-flex">
+            {% for m in memes %}
+
+                <div class="card my-2">
+                    <div class="card-header">{{ m.author }}</div>
+                    <div class="card-body">
+                        <img src="{{ m.img }}" class="card-img-top">
+                    </div>
+                    <a href="/meme/view?id={{ m.id }}" class="btn btn-primary"
+                       style="background:#27ae60;border: #27ae60; ">Show meme</a>
+
+
+                </div>
+
+            {% endfor %}
+
+
+        </div>
+        <h2 class="text-center my-5">Vous voulez créer votre meme ?</h2>
+        <div class="latest__post__loop row my-5 d-flex">
+            {% for memeall in apimeme %}
+
+                <div class="card my-2">
+                    <div class="card-header">{{ memeall.name }}</div>
+                    <div class="card-body">
+                        <img src=" {{ memeall.url }}" class="card-img-top">
+                    </div>
+                    <a href="{{ memeall.url }}" download="{{ memeall.url }}" class="btn btn-primary"
+                       style="background:#27ae60;border: #27ae60; ">Download meme</a>
+                </div>
+
+            {% endfor %}
+
+
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="single__meme">
+        <h1 class="text-center my-5">Single Meme</h1>
+        <div class="row my-5 justify-content-center">
+            <div class="card w-50">
+                <div class="card-header">{{ memesingle.author }}</div>
+                <div class="card-body">
+                    <img src="{{ memesingle.img }}" class="card-img-top">
+                </div>
+            </div>
+            <div class="add__comments">
+                <form action="view?id={{ memesingle.id }}" method="post">
+                    <div class="mb-3">
+                        <label for="commentairemg" class="form-label">Commentaire</label>
+                        <input class="form-control" id="commentairemg" name="commentairemg" type="text">
+                    </div>
+                    <button type="submit" name="commentadd" id="commentadd" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+            <div class="comments">
+                {% for com in comments %}
+                    <div class="card w-20 my-3">
+                        <div class="card-body">
+                            <div class="card-title" style="color: grey">{{ com.content }}</div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

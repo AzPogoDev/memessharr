@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+    <div class="latest__post">
+
+        <h1 class="text-center my-5">Our latest memes</h1>
+        <div class="latest__post__loop row my-5 d-flex">
+            {% for m in memes %}
+
+                <div class="card" >
+                    <div class="card-header">{{ m.author }}</div>
+                    <div class="card-body">
+                        <img src="{{ m.img }}" class="card-img-top">
+                    </div>
+                    <a href="/meme/view?id={{ m.id }}" class="btn btn-primary" style="background:#27ae60;border: #27ae60; ">Show meme</a>
+
+
+                </div>
+
+            {% endfor %}
+
+
+        </div>
+    </div>
+{% endblock %}

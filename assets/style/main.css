@@ -1,0 +1,28 @@
+body{
+    font-family: 'Luckiest Guy',Verdana!important;
+}
+
+.latest__post .card{
+    width: 30%;
+}
+
+.latest__post .latest__post__loop{
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.card-header {
+    background: none!important;
+    text-align: center;
+}
+
+.card {
+    padding: 1rem;
+}
+.card-body {
+    flex: 1 1 auto;
+    padding: 1rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
